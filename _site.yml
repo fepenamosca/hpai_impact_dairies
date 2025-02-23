@@ -1,0 +1,17 @@
+name: "The impact of highly pathogenic avian influenza H5N1 virus infection on dairy cows"
+header-includes: 
+  \usepackage{graphicx}
+  \usepackage{float}
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "Code and output"
+      href: hpai_impact_dairies.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<fp274@cornell.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/fepenamosca/
+output:  
+   html_document:
+    theme: flatly
