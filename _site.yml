@@ -6,6 +6,8 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
+    - text: "Data"
+      href: https://github.com/fepenamosca/hpai_impact_dairies/tree/fd5f303f4aae47ef3a6259e7e7b94284f8c3af67/data
     - text: "Code and output"
       href: hpai_impact_dairies.html
     - icon: fa-envelope fa-lg
