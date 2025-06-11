@@ -11,9 +11,9 @@
 
 <meta name="author" content="Felipe Pena Mosca" />
 
-<meta name="date" content="2025-02-22" />
+<meta name="date" content="2025-06-10" />
 
-<title>Impact HPAI dairy cows</title>
+<title>The impact of highly pathogenic avian influenza H5N1 virus infection on dairy cows</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1575,9 +1575,10 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Impact HPAI dairy cows</h1>
+<h1 class="title toc-ignore">The impact of highly pathogenic avian
+influenza H5N1 virus infection on dairy cows</h1>
 <h4 class="author">Felipe Pena Mosca</h4>
-<h4 class="date">2025-02-22</h4>
+<h4 class="date">2025-06-10</h4>
 
 </div>
 
@@ -1591,7 +1592,7 @@ characteristics</h2>
 
 # Save dataset
 
-write_xlsx(baseline_df,&quot;extended_table_1.xlsx&quot;)
+write_xlsx(baseline_df,&quot;./cleaned_data/table_1.xlsx&quot;)
 
 # Create table
 
@@ -1764,15 +1765,15 @@ table1::table1(~dim_group_date + lact_period +  lact_group_date + breed + mean_m
 </tr>
 <tr>
 <td class="rowlabel">Mean (SD)</td>
-<td>4.32 (1.24)</td>
-<td>4.19 (1.23)</td>
-<td>4.29 (1.24)</td>
+<td>4.42 (1.30)</td>
+<td>4.37 (1.28)</td>
+<td>4.41 (1.29)</td>
 </tr>
 <tr>
 <td class="rowlabel">Median [Min, Max]</td>
-<td>4.13 [0.693, 9.95]</td>
-<td>4.04 [0.693, 9.35]</td>
-<td>4.11 [0.693, 9.95]</td>
+<td>4.20 [0.693, 9.95]</td>
+<td>4.13 [0.693, 9.35]</td>
+<td>4.19 [0.693, 9.95]</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Missing</td>
@@ -1785,7 +1786,7 @@ table1::table1(~dim_group_date + lact_period +  lact_group_date + breed + mean_m
 </div>
 <pre class="r"><code># PCR samples
 
-write_xlsx(pcr_data_df,&quot;extended_table_2.xlsx&quot;)
+write_xlsx(pcr_data_df,&quot;./cleaned_data/extended_table_1.xlsx&quot;)
 
 
  table1::table1(~dim_date + lact_group_date + breed,data=pcr_data_clinical_metadata_cow)</code></pre>
@@ -2058,7 +2059,7 @@ write_xlsx(pcr_data_df,&quot;extended_table_2.xlsx&quot;)
 </div>
 <pre class="r"><code># Blood samples (Serology) for cows onsite (637 out of 810)
 
-write_xlsx(df_cow_outbreak_serology_including_dry,&quot;extended_table_5.xlsx&quot;)
+write_xlsx(df_cow_outbreak_serology_including_dry,&quot;./cleaned_data/extended_table_4.xlsx&quot;)
 
 table1::table1(~dim_group_date + lact_group_date + breed +vn_titer|clinical_serology,data=df_cow_outbreak_serology_including_dry)</code></pre>
 <div class="Rtable1"><table class="Rtable1">
@@ -2346,7 +2347,7 @@ table1::table1(~dim_group_date + lact_group_date + breed +vn_titer|clinical_sero
 <h2><span class="header-section-number">1.2</span> Daily incidence</h2>
 <pre class="r"><code># Save dataset
 
-write_xlsx(overall,&quot;cleaned_data/figure_1_panel_a.xlsx&quot;)
+write_xlsx(overall,&quot;./cleaned_data/figure_1_panel_a.xlsx&quot;)
 
 # Create plot
 
@@ -3039,53 +3040,43 @@ summary(model)</code></pre>
 ##    (404 observations deleted due to missingness)
 ## 
 ##                               coef exp(coef) se(coef)      z Pr(&gt;|z|)    
-## dim_group_date101-200      0.32860   1.38902  0.09735  3.376 0.000737 ***
-## dim_group_date&gt;200         0.58001   1.78606  0.09917  5.849 4.96e-09 ***
-## lact_group_date2           0.59359   1.81047  0.09964  5.957 2.56e-09 ***
-## lact_group_date≥3          0.61314   1.84622  0.11860  5.170 2.34e-07 ***
-## breedJersey               -0.08537   0.91817  0.13244 -0.645 0.519198    
-## breedCrossbreed           -0.04737   0.95374  0.08402 -0.564 0.572938    
-## mean_milk_baseline_tenths  0.06045   1.06232  0.04513  1.340 0.180386    
-## log_scc_baseline_dhi      -0.01247   0.98760  0.03129 -0.399 0.690105    
+## dim_group_date101-200      0.33018   1.39121  0.09719  3.397 0.000681 ***
+## dim_group_date&gt;200         0.58073   1.78735  0.09884  5.876 4.21e-09 ***
+## lact_group_date2           0.59522   1.81343  0.09957  5.978 2.26e-09 ***
+## lact_group_date≥3          0.60382   1.82910  0.11866  5.088 3.61e-07 ***
+## breedJersey               -0.08082   0.92236  0.13259 -0.610 0.542149    
+## breedCrossbreed           -0.04418   0.95678  0.08412 -0.525 0.599395    
+## mean_milk_baseline_tenths  0.07029   1.07281  0.04534  1.550 0.121094    
+## log_scc_baseline_dhi       0.02483   1.02514  0.02912  0.853 0.393869    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ##                           exp(coef) exp(-coef) lower .95 upper .95
-## dim_group_date101-200        1.3890     0.7199    1.1478     1.681
-## dim_group_date&gt;200           1.7861     0.5599    1.4706     2.169
-## lact_group_date2             1.8105     0.5523    1.4893     2.201
-## lact_group_date≥3            1.8462     0.5416    1.4633     2.329
-## breedJersey                  0.9182     1.0891    0.7083     1.190
-## breedCrossbreed              0.9537     1.0485    0.8089     1.124
-## mean_milk_baseline_tenths    1.0623     0.9413    0.9724     1.161
-## log_scc_baseline_dhi         0.9876     1.0126    0.9289     1.050
+## dim_group_date101-200        1.3912     0.7188    1.1499     1.683
+## dim_group_date&gt;200           1.7873     0.5595    1.4726     2.169
+## lact_group_date2             1.8134     0.5514    1.4919     2.204
+## lact_group_date≥3            1.8291     0.5467    1.4495     2.308
+## breedJersey                  0.9224     1.0842    0.7113     1.196
+## breedCrossbreed              0.9568     1.0452    0.8114     1.128
+## mean_milk_baseline_tenths    1.0728     0.9321    0.9816     1.173
+## log_scc_baseline_dhi         1.0251     0.9755    0.9683     1.085
 ## 
-## Concordance= 0.587  (se = 0.01 )
-## Likelihood ratio test= 87.12  on 8 df,   p=2e-15
-## Wald test            = 79.97  on 8 df,   p=5e-14
-## Score (logrank) test = 81.78  on 8 df,   p=2e-14</code></pre>
+## Concordance= 0.589  (se = 0.01 )
+## Likelihood ratio test= 87.68  on 8 df,   p=1e-15
+## Wald test            = 80.58  on 8 df,   p=4e-14
+## Score (logrank) test = 82.41  on 8 df,   p=2e-14</code></pre>
 <pre class="r"><code># Type III p-values
 
 Anova(model,type=&quot;III&quot;)</code></pre>
 <pre><code>## Analysis of Deviance Table (Type III tests)
 ##                           LR Chisq Df Pr(&gt;Chisq)    
-## dim_group_date              35.670  2  1.796e-08 ***
-## lact_group_date             43.318  2  3.923e-10 ***
-## breed                        0.509  2     0.7755    
-## mean_milk_baseline_tenths    1.810  1     0.1785    
-## log_scc_baseline_dhi         0.160  1     0.6894    
+## dim_group_date              36.015  2  1.511e-08 ***
+## lact_group_date             43.022  2  4.549e-10 ***
+## breed                        0.450  2     0.7987    
+## mean_milk_baseline_tenths    2.425  1     0.1194    
+## log_scc_baseline_dhi         0.719  1     0.3963    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="r"><code># Proportional hazards
-
-cox.zph(model)</code></pre>
-<pre><code>##                             chisq df      p
-## dim_group_date             0.0855  2 0.9581
-## lact_group_date            9.3185  2 0.0095
-## breed                      8.2652  2 0.0160
-## mean_milk_baseline_tenths  3.4704  1 0.0625
-## log_scc_baseline_dhi       3.1348  1 0.0766
-## GLOBAL                    26.0659  8 0.0010</code></pre>
 <pre class="r"><code># Create forestplot
 
 p_model &lt;- as.data.frame(Anova(model,type=&quot;III&quot;)) %&gt;% 
@@ -3182,7 +3173,7 @@ all_analysis &lt;- all_analysis %&gt;% rename(mean=HR,lower=LCL,upper=UCL)
 Cairo::Cairo(
   20, 
   16,
-  file = paste(&quot;./figures/figure_1&quot;, &quot;.png&quot;, sep = &quot;&quot;),
+  file = paste(&quot;./figures/figure_2&quot;, &quot;.png&quot;, sep = &quot;&quot;),
   type = &quot;png&quot;, #tiff
   bg = &quot;white&quot;, #white or transparent depending on your requirement 
   dpi = 600,
@@ -55192,14 +55183,6 @@ ggsave(plot = last_plot(),&quot;./figures/extended_data_figure_2_panel_f.png&quo
 <pre><code>## Warning: `position_dodge()` requires non-overlapping x intervals.</code></pre>
 <pre class="r"><code># Stratifying by cows that stayed, were sold or died
 
-df_days_from_diagnosis &lt;- df_days_from_diagnosis %&gt;%
-  mutate(stayed_sold_died = as.factor(case_when(
-    died_cow == 1 ~ &quot;Died&quot;,
-    sold_cow == 1 ~ &quot;Sold&quot;,
-    TRUE ~ &quot;Stayed&quot;
-  )))
-
-df_days_from_diagnosis$stayed_sold_died &lt;- relevel(df_days_from_diagnosis$stayed_sold_died,ref=&quot;Stayed&quot;)
 
 # Built model
 
@@ -84743,7 +84726,7 @@ ggsave(plot = last_plot(),&quot;./figures/figure_5.pdf&quot;,width = 18, height 
 <h1><span class="header-section-number">4</span> Mortality</h1>
 <pre class="r"><code># Create dataset
 
-write_xlsx(df_mortality_removal,&quot;extended_data_table_4.xlsx&quot;)
+write_xlsx(df_mortality_removal,&quot;./cleaned_data/extended_data_table_3.xlsx&quot;)
 
 # Descriptive stats
 
